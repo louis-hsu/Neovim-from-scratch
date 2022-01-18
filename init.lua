@@ -1,4 +1,4 @@
-require "user.options"
-require "user.keymaps"
-require "user.plugins"
-require "user.colorscheme"
+require "nshiu.options"
+require "nshiu.keymaps"
+require "nshiu.plugins"
+require "nshiu.colorscheme"
