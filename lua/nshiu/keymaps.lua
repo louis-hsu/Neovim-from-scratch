@@ -14,7 +14,7 @@ vim.g.maplocalleader = " "
 --   normal_mode = "n",
 --   insert_mode = "i",
 --   visual_mode = "v",
---   visual_block_mode = "x",
+--   visual_block_mode = "x", (Ctrl +v)
 --   term_mode = "t",
 --   command_mode = "c",
 
