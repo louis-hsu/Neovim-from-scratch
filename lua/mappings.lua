@@ -101,10 +101,10 @@ map("n", "<Leader>]", "<C-W>|", { silent = true })
 map("n", "<Leader>=", "<C-W>=", { silent = true })
 
 -- Hop
-map("n", "h", "<cmd>lua require'hop'.hint_words()<cr>")
-map("n", "l", "<cmd>lua require'hop'.hint_lines()<cr>")
-map("v", "h", "<cmd>lua require'hop'.hint_words()<cr>")
-map("v", "l", "<cmd>lua require'hop'.hint_lines()<cr>")
+--map("n", "h", "<cmd>lua require'hop'.hint_words()<cr>")
+--map("n", "l", "<cmd>lua require'hop'.hint_lines()<cr>")
+--map("v", "h", "<cmd>lua require'hop'.hint_words()<cr>")
+--map("v", "l", "<cmd>lua require'hop'.hint_lines()<cr>")
 
 -- Symbols outline
 map("n", "<leader>o", ":SymbolsOutline<cr>")

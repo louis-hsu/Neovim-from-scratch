@@ -4,6 +4,7 @@
 local nightfox = require("nightfox")
 nightfox.setup({
   fox = "nordfox",
+  transparent = true,
   alt_nc = true,
   styles = {
     comments = "italic",
@@ -15,28 +16,23 @@ nightfox.setup({
     search = true,
     match_paren = true,
   },
+  colors = {
+--    comment = "#878787",
+    magenta = "#81a1c1",
+  },
+  hlgroups = {
+    CursorLineNr = { fg = "#ffd787", style = "bold" },
+    CursorLine = { bg = "NONE" },
+    CursorColumn = { bg = "#1c1c1c" },
+    Cursor = { fg = "NONE", bg = "NONE" },
+    Normal = { fg = "#d8dde8" },
+    Statement = { fg = "#81a1c1" },
+--    Conditional = { fg = "#81a1c1" },
+--    Repeat = { fg = "#81a1c1" },
+--    Label = { fg = "#81a1c1" },
+    Keyword = { style = "NONE" },
+    Comment = { fg = "#878787" },
+    Todo = { fg = "#ebcb8b", bg = "NONE", style = "bold" },
+  }
 })
 nightfox.load()
-
--- Good info on overriding colors: https://gist.github.com/romainl/379904f91fa40533175dfaec4c833f2f
--- Note had to add the SpecialKey to keep highlight on yank working alongside the CursorLine override
-vim.api.nvim_exec(
-  [[
-function! MyHighlights() abort
-    highlight CursorLine guifg=NONE guibg=#353A54
-    highlight CmpItemAbbr guifg=#9FA4B6
-    highlight SpecialKey guibg=NONE
-    highlight CmpItemKind guifg=#8289A0
-    highlight CmpItemMenu guifg=#8289A0
-    highlight PmenuSel guibg=#73daca guifg=#111111
-    highlight Pmenu guibg=#2E3248
-    highlight GitSignsAddNr guifg=#26A07A
-    highlight GitSignsDeleteNr guifg=#E87D7D
-    highlight GitSignsChangeNr guifg=#AD991F
-    endfunction
-augroup MyColors
-    autocmd!
-    autocmd ColorScheme * call MyHighlights()
-augroup END]],
-  true
-)

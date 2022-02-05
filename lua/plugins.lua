@@ -1,3 +1,6 @@
+-- Combine the setting from ChrisAtMachine and Ben Frain
+-- Louis 2022/0205
+
 local fn = vim.fn
 
 -- Automatically install packer
@@ -38,20 +41,37 @@ packer.init {
   },
 }
 
--- Utility
+-- Utility to call individual setup for each plugin
 function get_setup(name)
     return string.format('require("setup/%s")', name)
 end
 
 -- Install your plugins here
 return packer.startup(function(use)
-  -- Basic plugins here
-  use "wbthomason/packer.nvim" -- Have packer manage itself
-  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+  -- Basic plugins here (from ChrisAtMachine)
+  use "wbthomason/packer.nvim"              -- Have packer manage itself
+  use "nvim-lua/popup.nvim"                 -- An implementation of the Popup API from vim in Neovim
+  use "nvim-lua/plenary.nvim"               -- Useful lua functions used ny lots of plugins
 
-  -- Colorschemes
-  use({"EdenEast/nightfox.nvim", config = get_setup("nightfox") })
+  -- Colorschemes and status line
+  use({ "EdenEast/nightfox.nvim", config = get_setup("nightfox") })
+  -- Use vim-airline instead of lualine since not easy to configure -- Louis 2022/0205
+  -- use({ "kyazdani42/nvim-web-devicons" })
+  -- use({
+  --    "nvim-lualine/lualine.nvim",
+  --    config = get_setup("lualine"),
+  --    event = "VimEnter",
+  --    requires = { "kyazdani42/nvim-web-devicons", opt = true },
+  --})
+  use({ "vim-airline/vim-airline-themes" })
+  use({
+      "vim-airline/vim-airline",
+      config = get_setup("airline"),
+      requires = { "vim-airline/vim-airline-themes", opt = true },
+  })
+  use({ "tpope/vim-fugitive", config = get_setup("fugitive") })     -- Git integration
+  use({ "mhinz/vim-signify", config = get_setup("signify") })       -- Git sign
+  use({ "aymericbeaumet/vim-symlink" })                             -- Fix symlink issue
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
