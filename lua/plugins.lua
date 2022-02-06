@@ -54,7 +54,10 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim"               -- Useful lua functions used ny lots of plugins
 
   -- Colorschemes and status line
-  use({ "EdenEast/nightfox.nvim", config = get_setup("nightfox") })
+  -- use({ "EdenEast/nightfox.nvim", config = get_setup("nightfox") })
+  -- Customize shaunsingh/nord.nvim to match original vim setup
+  -- Louis 2022/0206
+  use({ "louis-hsu/nord.nvim", config = get_setup("nord") })
   -- Use vim-airline instead of lualine since not easy to configure -- Louis 2022/0205
   -- use({ "kyazdani42/nvim-web-devicons" })
   -- use({
