@@ -39,9 +39,16 @@ opt.wrap = true
 -- opt.cc = "80"
 opt.mouse = "a"
 opt.guicursor =
-  "n-v-c-sm:block-blinkwait50-blinkon50-blinkoff50,i-ci-ve:ver25-Cursor-blinkon100-blinkoff100,r-cr-o:hor20"
+  "n-v-c-sm:block-blinkwait500-blinkon500-blinkoff500,i-ci-ve:ver25-Cursor-blinkon100-blinkoff100,r-cr-o:hor20"
 opt.undodir = vim.fn.stdpath("config") .. "/undo"
 opt.undofile = true
 vim.cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = true}") -- disabled in visual mode
 -- Give me some fenced codeblock goodness
 vim.g.markdown_fenced_languages = { "html", "javascript", "typescript", "css", "scss", "lua", "vim" }
+
+-- Add for Neovide -- Louis 12/02/2022
+-- vim.opt.guifont = { "FiraCode Nerd Font Mono", ":h12" }
+vim.opt.guifont = { "JetBrainsMono Nerd Font Mono", ":h12" }
+vim.g.neovide_remember_window_size = { "v:true" }
+vim.g.neovide_cursor_animation_length = 0.06
+vim.g.neovide_cursor_vfx_mode = "ripple"
