@@ -56,7 +56,22 @@ return packer.startup(function(use)
   -- Colorschemes and status line
   -- Customize shaunsingh/nord.nvim to match original vim setup
   -- Louis 2022/0206
-  use({ "louis-hsu/nord.nvim", config = get_setup("nord") })
+  -- use({ "shaunsingh/nord.nvim",
+  use({ "louis-hsu/nord.nvim",
+    config = get_setup("nord"),
+  })
+  --   use({ "catppuccin/nvim" , as = "catppuccin",
+  --   require("catppuccin").setup({
+  --     flavor = "mocha",
+  --  })
+  --})
+  
+  -- Install todo-comments -- Louis 2023/1212
+  use({ 
+    "folke/todo-comments.nvim",
+    require("todo-comments").setup()
+  })
+
   -- Use vim-airline instead of lualine since not easy to configure -- Louis 2022/0205
   use({ "vim-airline/vim-airline-themes" })
   use({
@@ -69,7 +84,7 @@ return packer.startup(function(use)
   use({ "tpope/vim-fugitive", config = get_setup("fugitive") })     -- Git integration
   use({ "mhinz/vim-signify", config = get_setup("signify") })       -- Git sign
   use({ "aymericbeaumet/vim-symlink" })                             -- Fix symlink issue
-  use({ "lewis6991/gitsigns.nvim", config = get_setup("gitsigns") })
+  --use({ "lewis6991/gitsigns.nvim", config = get_setup("gitsigns") })
 
   -- CMP plugins
   use({
